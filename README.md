@@ -1,24 +1,26 @@
 # 🌍 GlobeGuide
 
-GlobeGuide is a React-based country discovery application that allows users to explore countries around the world. Users can search and filter countries, view detailed country information, and save countries to a personal wishlist.
+GlobeGuide is a React-based travel discovery application that helps users explore countries, cities, and places around the world.
+
+The project was built as a data-driven React application using a public API, with search, filtering, country details, and wishlist functionality.
 
 ## ✨ Features
 
-- 🌍 Browse countries from an external API
+- 🌍 Browse countries from around the world
 - 🔎 Search countries by name
 - 🗺️ Filter countries by region
-- ❤️ Add and remove countries from a wishlist
-- 💾 Persist wishlist data using LocalStorage
+- 📍 Explore cities around the world
+- 🔎 Search cities by name
+- 🌎 Filter cities by country
+- 🏞️ Explore places using place-name search
+- ❤️ Add countries to a personal wishlist
+- 💾 Wishlist persists using localStorage
 - 📄 View detailed information about individual countries
-- 🏳️ Display country flags
-- 🌐 View country capital, region, population, and languages
-- 🧭 Navigate between pages using React Router
-- ⏳ Loading states while fetching data
-- ⚠️ Error handling for failed API requests
-- 🚫 Empty search result handling
+- ⚡ Loading and error states
 - 📱 Responsive design for desktop, tablet, and mobile
+- 🧭 Client-side navigation with React Router
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies
 
 - React
 - Vite
@@ -26,193 +28,173 @@ GlobeGuide is a React-based country discovery application that allows users to e
 - JavaScript (ES6+)
 - HTML5
 - CSS3
-- LocalStorage
-- Countries.dev API
+- REST API
+- localStorage
+- Git & GitHub
 
-## 📁 Project Structure
+## 📡 API
+
+GlobeGuide uses the free and keyless **countries.dev API**.
+
+The API provides country, city, and geographical place data.
+
+Main endpoints used:
 
 ```text
-globe-guide/
-├── public/
+https://countries.dev/countries
+https://countries.dev/alpha/{countryCode}
+https://countries.dev/cities
+https://countries.dev/places
+📂 Project Structure
+src/
+├── components/
+│   ├── CountryCard.jsx
+│   └── Navbar.jsx
 │
-├── src/
-│   ├── components/
-│   │   ├── CountryCard.jsx
-│   │   └── Navbar.jsx
-│   │
-│   ├── pages/
-│   │   ├── HomePage.jsx
-│   │   ├── WishlistPage.jsx
-│   │   └── CountryDetails.jsx
-│   │
-│   ├── css/
-│   │   └── style.css
-│   │
-│   ├── App.jsx
-│   └── main.jsx
+├── pages/
+│   ├── HomePage.jsx
+│   ├── WishlistPage.jsx
+│   ├── CountryDetails.jsx
+│   ├── CitiesPage.jsx
+│   └── PlacesPage.jsx
 │
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── README.md
-
+├── css/
+│   └── style.css
+│
+├── App.jsx
+└── main.jsx
 🚀 Getting Started
-Prerequisites
-
-Before running the project, make sure you have installed:
-
-Node.js
-npm
-
-You can verify your installation with:
-
-node -v
-npm -v
-Installation
-Clone the repository:
-git clone REPOSITORY_URL
-Navigate to the project directory:
+1. Clone the repository
+git clone GITHUB_REPOSITORY_URL
+2. Navigate into the project
 cd globe-guide
-Install the project dependencies:
+3. Install dependencies
 npm install
-Start the development server:
+4. Start the development server
 npm run dev
-Open the local development URL provided by Vite in your browser.
-🔌 API
 
-GlobeGuide uses the Countries.dev API to retrieve country information.
+The application will be available through the local Vite development URL.
 
-The application uses data including:
+🧭 Application Routes
+Route	Description
+/	Explore countries
+/wishlist	View saved countries
+/country/:code	View country details
+/cities	Explore cities
+/places	Explore geographical places
+❤️ Wishlist
 
+Users can add countries to their wishlist by clicking the Add to Wishlist button.
+
+Wishlist data is stored in the browser's localStorage, allowing saved countries to remain available after refreshing the page.
+
+🔎 Search & Filtering
+Countries
+
+Users can:
+
+Search countries by name
+Filter countries by region
+Browse all available countries
+Cities
+
+Users can:
+
+Search cities by name
+Filter cities by country
+View population and geographical coordinates
+Places
+
+Users can:
+
+Search geographical places by name
+View country information
+View place type
+View population
+View geographical coordinates
+📄 Country Details
+
+Each country has a dedicated details page containing information such as:
+
+Flag
 Country name
 Capital
 Region
 Population
 Languages
-Country codes
-Country flags
-🧭 Application Routes
-Route	Description
-/	Explore, search, and filter countries
-/wishlist	View saved countries
-/country/:code	View detailed information about a country
-🔎 Search and Filtering
+Other available country information
+🎨 UI & Responsive Design
 
-The Explore page allows users to search for countries by name.
+The application uses custom CSS with:
 
-Users can also filter countries by region:
+Card-based layouts
+Responsive grids
+Hover effects
+Responsive navigation
+Mobile-friendly layouts
+Loading and error messages
+Consistent styling across pages
 
-Africa
-Americas
-Asia
-Europe
-Oceania
+The layout adapts to different screen sizes including desktop, tablet, and mobile devices.
 
-Search and region filtering can be used together to find specific countries more easily.
+📋 Assignment Requirements
 
-❤️ Wishlist
+GlobeGuide satisfies the main requirements of the React data-driven application assignment:
 
-Users can save countries to their wishlist by clicking the Add to Wishlist button.
-
-The wishlist supports:
-
-Adding countries
-Removing countries
-Displaying the wishlist count
-Viewing saved countries
-Persisting saved countries after a page refresh
-
-Wishlist data is stored in the browser using LocalStorage.
-
-📄 Country Details
-
-Each country has a dedicated details page.
-
-Users can click View Details from a country card to view:
-
-🏳️ Country flag
-🌍 Country name
-🏛️ Capital
-🗺️ Region
-👥 Population
-🗣️ Languages
-⏳ Loading and Error Handling
-
-The application displays a loading message while country data is being retrieved from the API.
-
-If the API request fails, an error message is displayed to the user.
-
-The application also handles searches that return no matching countries.
-
-For example:
-
-No countries found.
-
-📱 Responsive Design
-
-GlobeGuide uses responsive CSS to provide a consistent experience across different screen sizes.
-
-The application supports:
-
-Desktop
-Tablet
-Mobile
-🎯 Assignment Requirements
-
-This project demonstrates the following React and web development concepts:
-
-API integration
-Data-driven rendering
-React functional components
-React Hooks
-State management with useState
-Side effects with useEffect
-Search functionality
-Region filtering
-Wishlist functionality
-LocalStorage persistence
-React Router
-Dynamic routes
-Conditional rendering
-Loading and error handling
-Responsive CSS
-Reusable components
+✅ React application
+✅ Public API integration
+✅ API data fetching
+✅ Card-based data display
+✅ Search functionality
+✅ Category/related filtering
+✅ Wishlist functionality
+✅ Good CSS styling
+✅ Fully functional navigation
+✅ Responsive design
 🧩 Main Components
 Navbar
 
-Provides navigation between the Explore and Wishlist pages and displays the current wishlist count.
+Provides navigation between the main sections of the application and displays the current wishlist count.
 
 CountryCard
 
-Displays basic information about a country and provides actions to view country details and add or remove the country from the wishlist.
+Displays country information and provides links to country details and wishlist functionality.
 
 HomePage
 
-Handles country data fetching, searching, filtering, and displaying country cards.
+Fetches and displays countries with search and region filtering.
+
+CountryDetails
+
+Displays detailed information for a selected country.
+
+CitiesPage
+
+Fetches city data and provides city search and country filtering.
+
+PlacesPage
+
+Fetches geographical place data and allows users to search for places around the world.
 
 WishlistPage
 
 Displays all countries saved by the user.
 
-CountryDetails
-
-Displays detailed information about a selected country based on its country code.
-
 🔮 Future Improvements
 
 Possible future improvements include:
 
-📍 Discover popular places and attractions
-🏛️ Display famous landmarks
-🖼️ Add images for tourist destinations
-🗺️ Add interactive maps
-⭐ Add ratings and reviews
-🌤️ Add local weather information
-🔐 Add user authentication
-🌐 Add multilingual support
+🗺️ Interactive maps
+📍 More detailed place information
+🌤️ Weather information
+🏨 Travel and accommodation information
+✈️ Travel planning features
+🔐 User accounts and cloud-based wishlists
+⭐ Ratings and reviews for places
+🖼️ Images for cities and places
 📸 Screenshots
 
-
+Screenshots of the application can be added here after deployment.
 
 👩‍💻 Author
 
@@ -222,4 +204,4 @@ Computer Science Graduate | Junior Software Engineer / Web Developer
 
 📄 License
 
-This project was created for educational and portfolio purposes.
+This project was created for educational purposes.
