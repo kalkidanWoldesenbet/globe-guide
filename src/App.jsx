@@ -4,6 +4,8 @@ import { useEffect,useState } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import WishlistPage from "./pages/WishlistPage.jsx";
 import CountryDetails from "./pages/CountryDetails.jsx";
+import CitiesPage from "./pages/CitiesPage.jsx";
+import PlacesPage from "./pages/PlacesPage.jsx";
 
 function App() {
   const [wishlist, setWishlist] = useState(() => {
@@ -55,7 +57,17 @@ function App() {
           path="/country/:code"
           element={<CountryDetails />}
         />
+        <Route
+          path="/cities"
+          element={<CitiesPage/>}
+        />
+        <Route
+          path ="/places"
+          element={<PlacesPage/>}
+          />
       </Routes>
+
+     
     </div>
   )
 }

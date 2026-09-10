@@ -16,7 +16,20 @@ function Navbar({ wishlistCount }) {
                >
                 Explore
             </NavLink>
-
+            <NavLink 
+              to="/cities"
+              className={({isActive}) => 
+                isActive ? "nav-link active" : "nav-link"
+              }
+              >
+              📍 Cities
+            </NavLink>
+            <NavLink
+              to="/places"
+              className={({isActive}) =>
+              isActive ? "nav-link active" : "nav-link"}>
+              📍 Places
+            </NavLink>
             <NavLink
               to="/wishlist"
               className={({ isActive }) =>
